@@ -32,7 +32,7 @@ export class MatrixService {
    * @returns {number[][]} The inverted matrix.
    */
   static invert(matrix: number[][]): number[][] {
-    return matrix[0].map((col, i) => matrix.map((row) => row[i]));
+    return matrix[0].map((_, i) => matrix.map((row) => row[i]));
   }
 
   /**
