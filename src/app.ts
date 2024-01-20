@@ -1,9 +1,9 @@
 import express, { Express, Request, Response } from "express";
+import routes from "./routes";
 
 const app: Express = express();
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
+// Configure middlewares
+app.use(routes);
 
 export default app;
