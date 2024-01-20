@@ -12,7 +12,7 @@ export class MatrixController {
    */
   static echo(req: Request, res: Response): void {
     const matrix = req.body.matrix;
-    res.json({ matrix });
+    res.json(MatrixService.matrixToString(matrix));
   }
 
   /**
@@ -23,7 +23,7 @@ export class MatrixController {
   static invert(req: Request, res: Response): void {
     const matrix = req.body.matrix;
     const invertedMatrix = MatrixService.invert(matrix);
-    res.json({ invertedMatrix });
+    res.json(MatrixService.matrixToString(invertedMatrix));
   }
 
   /**
@@ -34,7 +34,7 @@ export class MatrixController {
   static flatten(req: Request, res: Response): void {
     const matrix = req.body.matrix;
     const flattenedMatrix = MatrixService.flatten(matrix);
-    res.json({ flattenedMatrix });
+    res.json(flattenedMatrix);
   }
 
   /**
@@ -45,7 +45,7 @@ export class MatrixController {
   static sum(req: Request, res: Response): void {
     const matrix = req.body.matrix;
     const sum = MatrixService.sum(matrix);
-    res.json({ sum });
+    res.json(sum);
   }
 
   /**
@@ -56,6 +56,6 @@ export class MatrixController {
   static multiply(req: Request, res: Response): void {
     const matrix = req.body.matrix;
     const product = MatrixService.multiply(matrix);
-    res.json({ product });
+    res.json(product);
   }
 }

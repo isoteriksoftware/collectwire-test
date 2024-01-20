@@ -32,7 +32,7 @@ export class MatrixService {
    * @returns {number[][]} The inverted matrix.
    */
   static invert(matrix: number[][]): number[][] {
-    return matrix.map((row: number[]) => row.reverse());
+    return matrix[0].map((col, i) => matrix.map((row) => row[i]));
   }
 
   /**
@@ -69,5 +69,14 @@ export class MatrixService {
         (product, value) => (isNumeric(value) ? product * value : product),
         1
       );
+  }
+
+  /**
+   * Converts the provided matrix to a string in CSV-like format.
+   * @param {number[][]} matrix - The matrix to be converted.
+   * @returns {string} The matrix as a string in CSV-like format.
+   */
+  static matrixToString(matrix: number[][]): string {
+    return matrix.map((row) => row.join(",")).join("\n");
   }
 }
